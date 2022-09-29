@@ -22,7 +22,7 @@ namespace WebApplication7.Models
         }
         public BookCategory AddCategory(BookCategory bookCategory)
         {
-            comm.CommandText = "insert into category (cat_id , cat_name , descriptions , status , position , creat_at , img) values ('"
+            comm.CommandText = "insert into category values('"
                 +bookCategory.cat_id+"' ,'"+bookCategory.cat_name+ "','"+bookCategory.desc+ "',"+bookCategory.status+",'"+bookCategory.pos+"','" +
                 bookCategory.date+"' , '"+bookCategory.img+"' )";
 
