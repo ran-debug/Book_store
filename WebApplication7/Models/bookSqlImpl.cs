@@ -23,12 +23,31 @@ namespace WebApplication7.Models
         }
         public Books addBooks(Books book)
         {
-            throw new NotImplementedException();
+            comm.CommandText = "insert into books (bookId , title , price , [status]) values('" + book.book_id + "' , '" + book.title + "' , " + book.price + " , " + book.status + ")";
+            comm.Connection = conn;
+            conn.Open();
+            int row = comm.ExecuteNonQuery();
+            conn.Close();
+            if (row > 0)
+                return book;
+            else
+                return null;
+
+
         }
 
-        public Books deleteBooks(string book_id)
+        public int deleteBooks(string book_id)
         {
-            throw new NotImplementedException();
+            comm.CommandText = "delete from books where bookId = '"+book_id+"'";
+            comm.Connection = conn;
+            conn.Open();
+            int row = comm.ExecuteNonQuery();
+            conn.Close();
+            if (row <= 0)
+                return -1;
+
+            return row;
+
         }
 
         public Books editBooks(string book_id)

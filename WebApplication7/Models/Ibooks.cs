@@ -13,6 +13,6 @@ namespace WebApplication7.Models
 
         Books editBooks(string book_id);
 
-        Books deleteBooks(string book_id);
+        int deleteBooks(string book_id);
     }
 }

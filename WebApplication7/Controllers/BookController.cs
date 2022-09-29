@@ -24,5 +24,25 @@ namespace WebApplication7.Controllers
             var data = book.getAllBooks();
             return Ok(data);
         }
+
+        [HttpGet , Route("api/book/{book_id}")]
+
+        public IHttpActionResult delete(string book_id)
+        {
+            var data = book.deleteBooks(book_id);
+            if(data > 0)
+            {
+                return Ok(data);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+
+        public IHttpActionResult post(Books books)
+        {
+            var data = book.addBooks(books);
+            return Ok(data);
+        }
     }
 }
